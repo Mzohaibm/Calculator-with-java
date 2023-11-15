@@ -26,14 +26,14 @@ public class StripeWebhookController {
                     PaymentIntent paymentIntent = (PaymentIntent) event.getDataObjectDeserializer().getObject();
                     // Handle successful payment
                     break;
-                // Add more event handlers as needed
+                // event handlers as needed
 
                 default:
                     // Unexpected event type
                     return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Unexpected event type");
             }
 
-            // Return a response to acknowledge receipt of the event
+            // a response to acknowledge receipt of the event
             return ResponseEntity.ok().body("{\"received\": true}");
 
         } catch (SignatureVerificationException e) {
